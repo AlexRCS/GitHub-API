@@ -4,6 +4,8 @@ const objUser = {
     name: '',
     bio: '',
     userName: '',
+    followers: '',
+    following: '',
     repositories: [],
 
     setInfo(gitHubUser) {
@@ -11,6 +13,8 @@ const objUser = {
         this.name = gitHubUser.name
         this.bio = gitHubUser.bio
         this.userName = gitHubUser.login
+        this.followers = gitHubUser.followers
+        this.following = gitHubUser.following
 
     },
 

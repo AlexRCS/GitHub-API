@@ -36,7 +36,7 @@ async function getUserData(userName) {
         return
     }
 
-    console.log('drop')
+    console.log(userResponse)
 
     const repositoriesResponse = await getRepositories(userName)
 
