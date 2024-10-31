@@ -152,28 +152,16 @@ main {
   display: none;
 }
 
-.events {
-  background-color: rgb(228, 228, 228);
-  padding: 5px;
-  border: hidden 5px;
-  border-radius: 10px;
-  width: 100%;
-}
-.events h2{
-  padding-bottom: 10px;
-}
-
 #events-list {
   display: flex;
-  justify-content: space-evenly;
-  padding: 4px 10px;
-  
+  background-color: rgb(228, 228, 228);
+  padding: 5px;
+  justify-content: center;
 }
 
-#event-message{
-  display: flex;
+#events-list span {
+  padding: 0 15px;
 }
-
 
 @media (max-width: 1280px) {
   .container {
