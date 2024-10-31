@@ -1,8 +1,10 @@
 import { getUser } from './services/users.js'
 import { getRepositories } from './services/repositories.js'
+import { getEvents } from './services/events.js'
 
 import { objUser } from './objects/objuser.js'
 import { screen } from './objects/screen.js'
+
 
 document.getElementById('btn-search').addEventListener('click', () => {
     const userName = document.getElementById('input-search').value
@@ -30,17 +32,24 @@ function validateEmpityImput(userName) {
 async function getUserData(userName) {
 
     const userResponse = await getUser(userName)
-
     if (userResponse.message === 'Not Found') {
         screen.renderNotFound()
         return
     }
 
-    console.log(userResponse)
-
+  
+    
     const repositoriesResponse = await getRepositories(userName)
 
     objUser.setInfo(userResponse)
-    objUser.setRepositories(repositoriesResponse)
+    objUser.setRepositories(repositoriesResponse)   
+    
+    const eventsResponse = await getEvents(userName)
+    objUser.setEvents(eventsResponse.filter(e => e.type === 'CreateEvent' || e.type === 'PushEvent'))
+
     screen.renderUser(objUser)
+   
+    console.log(userResponse)
+    console.log(eventsResponse)
+  
 }
