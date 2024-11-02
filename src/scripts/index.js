@@ -37,19 +37,24 @@ async function getUserData(userName) {
         return
     }
 
-  
-    
+
+
     const repositoriesResponse = await getRepositories(userName)
+    repositoriesResponse.forEach(repo => {
+        if (repo.language === null){
+            repo.language = 'N/A'
+        }});
 
     objUser.setInfo(userResponse)
-    objUser.setRepositories(repositoriesResponse)   
-    
+    objUser.setRepositories(repositoriesResponse)
+
     const eventsResponse = await getEvents(userName)
     objUser.setEvents(eventsResponse.filter(e => e.type === 'CreateEvent' || e.type === 'PushEvent'))
 
     screen.renderUser(objUser)
-   
+
     console.log(userResponse)
     console.log(eventsResponse)
-  
+    console.log(repositoriesResponse)
+
 }

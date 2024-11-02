@@ -8,7 +8,7 @@ const objUser = {
     following: '',
     repositories: [],
     event: [],
-    commitMessage: [],
+
 
     setInfo(gitHubUser) {
         this.avatarUrl = gitHubUser.avatar_url
@@ -17,7 +17,6 @@ const objUser = {
         this.userName = gitHubUser.login
         this.followers = gitHubUser.followers
         this.following = gitHubUser.following
-
     },
 
     setRepositories(repositories) {
