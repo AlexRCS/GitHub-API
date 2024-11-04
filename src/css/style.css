@@ -98,6 +98,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 }
 
 .container .profile-data .info .data {
@@ -154,18 +155,20 @@ main {
   display: none;
 }
 
-.repo-stats {
+.repo-stats{
   display: flex;
   flex-direction: row;
-  border: hidden 1px;
-  border-radius: 5px;
-  background-color: rgb(91, 0, 156);
-  margin: 5px;
-  padding: 5px;
 }
 
 .repo-icons {
-  padding-left: 10px;
+  display: flex;
+  flex-flow: row;
+  border: hidden 1px;
+  border-radius: 5px;
+  background-color: rgb(91, 0, 156);
+  padding: 4px 10px;
+  margin: 4px;
+  width: max-content;
 }
 
 /* EVENTS */
@@ -173,19 +176,23 @@ main {
 .events-list {
   display: flex;
   background-color: rgb(228, 228, 228);
-  padding: 5px 30px;
+  padding: 5px max-content;
+  align-items: center;
   justify-content: space-between;
   margin: 8px;
   border-bottom: solid 1px rgb(108, 107, 107);
+  border-radius: 3px;
 }
 
 .event-message {
-  padding: 0 40px;
+ padding: 0 20px ;
 }
 
 .event-repo {
   display: flex;
-  align-self: center;
+  justify-items: flex-start;
+  padding:0 20px;
+  width: min-content;
 }
 
 
@@ -218,23 +225,21 @@ main {
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 450px) {
   main {
-    padding: 15% 0;
+    padding: 15% 0px;
   }
 
   .container .profile-data .info img {
     margin-bottom: 20px;
   }
 
-  .container .profile-data .info img,
+  .container .profile-data .info img{
+    display: flex;
+    width: 90%;
+  }
   .container .profile-data .info .data {
     width: 100%;
     padding: 0;
-  }
-
-  .event-repo {
-    display: flex;
-    align-items: center;
   }
 }
